@@ -35,9 +35,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent startUdpService = new Intent(MainActivity.this, UdpService.class);
-        startService(startUdpService);
+        Intent startUdpService = new Intent(this, UdpService.class);
+
         Prefs = getSharedPreferences(ApplicationConstants.ApplicationPrefs,Context.MODE_PRIVATE);
+        Prefs.edit().putString(ApplicationConstants.DirectionKey,"2").commit();
+        Prefs.edit().putBoolean(ApplicationConstants.ServiceStartKey,true).commit();
+        this.startService(startUdpService);
         final Button btn1 = findViewById(R.id.button1);
         final Button btn2 = findViewById(R.id.button2);
         final Button btn3 = findViewById(R.id.button3);

@@ -19,9 +19,8 @@
             </intent-filter>
         </activity>
         <service
-            android:enabled="true"
-            android:name=".UdpService"
-            android:process=":service"/>
+            android:exported="false"
+            android:name=".UdpService"/>
     </application>
 
 </manifest>
