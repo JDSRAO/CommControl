@@ -5,12 +5,16 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ProxyInfo;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.support.annotation.Nullable;
+import android.text.format.Formatter;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
@@ -34,7 +38,8 @@ public class UdpService extends IntentService
             SharedPreferences Prefs = getSharedPreferences(ApplicationConstants.ApplicationPrefs, Context.MODE_PRIVATE);
             DatagramSocket s = new DatagramSocket();
             //String local_ip=InetAddress.getLocalHost().getHostAddress();
-            String local_ip = "192.168.43.103";
+            //String local_ip = "192.168.43.103";
+            String local_ip = GetIPAddress();
             String[] ip_component = local_ip.split("\\.");
             String broadcast=ip_component[0]+"."+ip_component[1]+"."+ip_component[2]+"."+"255";
             InetAddress local = InetAddress.getByName(broadcast);
@@ -72,5 +77,13 @@ public class UdpService extends IntentService
         {
             System.out.println(ex);
         }
+    }
+
+    private String GetIPAddress()
+    {
+        WifiManager mgr = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
+        int ip = mgr.getConnectionInfo().getIpAddress();
+        //String ipaddres = Inet4Address();
+        return String.format("%d.%d.%d.%d",(ip & 0xff),(ip >> 8 & 0xff),(ip >> 16 & 0xff),(ip >> 24 & 0xff));
     }
 }

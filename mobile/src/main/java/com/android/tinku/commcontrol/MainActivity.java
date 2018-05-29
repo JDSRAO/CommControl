@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         Intent startUdpService = new Intent(this, UdpService.class);
 
         Prefs = getSharedPreferences(ApplicationConstants.ApplicationPrefs,Context.MODE_PRIVATE);
-        Prefs.edit().putString(ApplicationConstants.DirectionKey,"2").commit();
+        Prefs.edit().putString(ApplicationConstants.DirectionKey,"5").commit();
         Prefs.edit().putBoolean(ApplicationConstants.ServiceStartKey,true).commit();
         this.startService(startUdpService);
         final Button btn1 = findViewById(R.id.button1);
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println(" pressed ");
                         v.performHapticFeedback(1);
                         startUdpService.putExtra("value", "5");
-                        Prefs.edit().putString(ApplicationConstants.DirectionKey,"5");
+                        Prefs.edit().putString(ApplicationConstants.DirectionKey,"5").commit();
                         if (!UdpService.Started)
                         {
                             startService(startUdpService);
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_UP:
                         System.out.println(" released ");
                         v.performHapticFeedback(1);
-                        Prefs.edit().putString(ApplicationConstants.DirectionKey,"");
+                        Prefs.edit().putString(ApplicationConstants.DirectionKey,"").commit();
                         //stopUdpService();
                         return true;
                 }
@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println(" pressed ");
                         v.performHapticFeedback(1);
                         startUdpService.putExtra("value", "6");
-                        Prefs.edit().putString(ApplicationConstants.DirectionKey,"6");
+                        Prefs.edit().putString(ApplicationConstants.DirectionKey,"6").commit();
                         if (!UdpService.Started)
                         {
                             startService(startUdpService);
@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_UP:
                         System.out.println(" released ");
                         v.performHapticFeedback(1);
-                        Prefs.edit().putString(ApplicationConstants.DirectionKey,"");
+                        Prefs.edit().putString(ApplicationConstants.DirectionKey,"").commit();
                         //stopUdpService();
                         return true;
                 }
@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println(" pressed ");
                         v.performHapticFeedback(1);
                         startUdpService.putExtra("value", "8");
-                        Prefs.edit().putString(ApplicationConstants.DirectionKey,"8");
+                        Prefs.edit().putString(ApplicationConstants.DirectionKey,"8").commit();
                         if (!UdpService.Started)
                         {
                             startService(startUdpService);
@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_UP:
                         System.out.println(" released ");
                         v.performHapticFeedback(1);
-                        Prefs.edit().putString(ApplicationConstants.DirectionKey,"");
+                        Prefs.edit().putString(ApplicationConstants.DirectionKey,"").commit();
                         //stopUdpService();
                         return true;
                 }
