@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CommControl</string>
+    <string name="UP">UP</string>
+    <string name="DOWN">DOWN</string>
+    <string name="LEFT">LEFT</string>
+    <string name="RIGHT">RIGHT</string>
+    <string name="STOP">STOP</string>
+    <string name="UDP__TCP">UDP__TCP</string>
+    <string name="IP">IP</string>
+    <string name="PORT_name">PORT</string>
+</resources>
